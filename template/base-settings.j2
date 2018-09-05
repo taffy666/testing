@@ -1,0 +1,22 @@
+system {
+    host-name {{ inventory_hostname }};
+    login {
+        user sion {
+            uid 2000;
+            class super-user;
+            authentication {
+                 password "Password";
+            }
+        }
+    }
+    replace:
+    name-server {
+        {{ dns1 }};
+        {{ dns2 }};
+    }
+    services {
+        netconf {
+            ssh;
+        }
+    }
+}
